@@ -1,0 +1,26 @@
+# Environment and Sensitive Credentials
+.env
+.env.local
+*.env
+*.log
+
+# Operating System files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+
+# IDE and Editor configurations
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*~
+
+# Antigravity & Scratch Artifacts
+.antigravity/
+.system_generated/
+scratch/
+read this.md
