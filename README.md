@@ -1,6 +1,6 @@
 <div align="center">
 
-  <img src="assets/logo.png" alt="10ccy Trips Logo" width="130" />
+  <img src="assets/logo.png" alt="10ccy Trips Logo" width="160" />
 
   # 🚌 10ccy Trips
   ### Online Bus Reservation & Fleet Management System
@@ -30,13 +30,13 @@
 
 ### 👤 Passenger Portal
 - **Smart Fleet Search**: Filter upcoming departures by source city, destination, and travel date with instant availability counters.
-- **Interactive Seat Matrix**: Real-time visual seat map showing driver cabin, available seats, booked seats, and multi-seat selection (up to 6 passengers per booking).
-- **Instant E-Ticket Generation**: Verified digital travel voucher displaying booking reference `#TCK`, passenger names, boarding/arrival points, QR code placeholder, and printable format.
-- **Trip History & Management**: View past, current, and upcoming journeys with live status badges (`CONFIRMED`, `COMPLETED`, `CANCELLED`).
+- **Interactive Seat Matrix**: Real-time visual seat map showing driver cabin, available seats, booked seats, and multi-seat selection with passenger name assignments.
+- **Instant E-Ticket Generation**: Verified digital travel voucher displaying booking reference `#TCK`, passenger names, boarding/arrival points, and printable format.
+- **Trip History & Management**: View past, current, and upcoming journeys with live status badges (`Booked`, `Cancelled`).
 - **User Authentication**: Secure session-based registration, login, and profile tracking.
 
 ### 🛡️ Fleet & Admin Management Portal
-- **Fleet Management**: Register, update, and manage buses (Volvo Multi-Axle, Scania, BharatBenz AC Sleeper, Executive Seater) with seat capacities and registration plates.
+- **Fleet Management**: Register, update, and manage buses (KSRTC Rajahamsa, VRL Travels, SRS Travels, Orange Tours, Sugama Travels) with seat capacities and registration plates.
 - **Route Planning**: Define intercity corridors with source, destination, distance in kilometers, and estimated journey durations.
 - **Schedule Dispatcher**: Assign buses to routes, schedule departure/arrival timestamps, and configure dynamic ticket fares in INR (₹).
 - **Reservation Control**: Real-time visibility into all passenger bookings across schedules with cancellation handling.
@@ -46,24 +46,33 @@
 ## 📸 Visual Showcase
 
 ### 1. Landing & Authentication
-| Welcome Landing Page | Secure User Login |
-| :---: | :---: |
-| <img src="docs/screenshots/01_landing_page.png" alt="Landing Page" width="550" /> | <img src="docs/screenshots/02_user_login.png" alt="User Login" width="550" /> |
+| Welcome Landing Page | Portal Selection | User Authentication |
+| :---: | :---: | :---: |
+| <img src="docs/screenshots/01_landing_page.png" alt="Landing Page" width="360" /> | <img src="docs/screenshots/02_login_choice.png" alt="Login Choice" width="360" /> | <img src="docs/screenshots/03_user_login.png" alt="User Login" width="360" /> |
 
 ### 2. User Dashboard & Journey Search
 | Passenger Dashboard | Search & Bus Fleet Listings |
 | :---: | :---: |
-| <img src="docs/screenshots/03_user_dashboard.png" alt="User Dashboard" width="550" /> | <img src="docs/screenshots/04_bus_search_booking.png" alt="Bus Search" width="550" /> |
+| <img src="docs/screenshots/04_user_dashboard.png" alt="User Dashboard" width="550" /> | <img src="docs/screenshots/05_bus_search.png" alt="Bus Search" width="550" /> |
 
-### 3. Seat Selection & Confirmation
-| Interactive Seat Map & Passenger Details | Digital Travel E-Ticket |
+### 3. Interactive Seat Selection & Confirmation
+| Interactive Seat Map & Passenger Details | Booking Confirmation Voucher |
 | :---: | :---: |
-| <img src="docs/screenshots/05_seat_selection.png" alt="Seat Selection" width="550" /> | <img src="docs/screenshots/06_eticket_confirmation.png" alt="E-Ticket" width="550" /> |
+| <img src="docs/screenshots/06_seat_selection.png" alt="Seat Selection" width="550" /> | <img src="docs/screenshots/07_booking_confirmed.png" alt="Booking Confirmed" width="550" /> |
 
-### 4. History & Administrative Control
-| Booking History & Status | Fleet Admin Control Center |
+### 4. Digital E-Ticket & Travel History
+| Electronic Travel Voucher (E-Ticket) | My Bookings History |
 | :---: | :---: |
-| <img src="docs/screenshots/07_booking_history.png" alt="Booking History" width="550" /> | <img src="docs/screenshots/08_admin_dashboard.png" alt="Admin Dashboard" width="550" /> |
+| <img src="docs/screenshots/08_eticket.png" alt="E-Ticket" width="550" /> | <img src="docs/screenshots/09_booking_history.png" alt="Booking History" width="550" /> |
+
+### 5. Fleet Administrator Control Center
+| Admin Dashboard | Manage Schedules |
+| :---: | :---: |
+| <img src="docs/screenshots/10_admin_dashboard.png" alt="Admin Dashboard" width="550" /> | <img src="docs/screenshots/11_manage_schedules.png" alt="Manage Schedules" width="550" /> |
+
+| Manage Routes | Manage Buses | Manage Bookings |
+| :---: | :---: | :---: |
+| <img src="docs/screenshots/12_manage_routes.png" alt="Manage Routes" width="360" /> | <img src="docs/screenshots/13_manage_buses.png" alt="Manage Buses" width="360" /> | <img src="docs/screenshots/14_manage_bookings.png" alt="Manage Bookings" width="360" /> |
 
 ---
 
@@ -72,7 +81,7 @@
 - **Backend**: PHP 8.x (Native Procedural & Object-Oriented with MySQLi)
 - **Database**: MySQL 8.0 / MariaDB with Relational Foreign Key Integrity
 - **Frontend**: HTML5, CSS3, JavaScript (ES6+), Bootstrap 5.3.3
-- **Icons & Typography**: Bootstrap Icons, Font Awesome 6, Segoe UI / Inter
+- **Icons & Typography**: Bootstrap Icons, Font Awesome 6, Segoe UI
 - **Security**: Password hashing (`bcrypt` via `password_hash()`), parameterized SQL statements, session role verification (`user` vs `admin`)
 
 ---
@@ -152,9 +161,9 @@ erDiagram
 Follow these steps to set up the project locally on your machine.
 
 ### Prerequisites
-- **Web Server**: Apache / Nginx or PHP Built-in Server
+- **Web Server**: Apache (XAMPP / WAMP) or PHP Built-in Server
 - **PHP**: PHP 8.0 or newer (with `mysqli` and `session` extensions enabled)
-- **Database**: MySQL 5.7+ / 8.0+ or MariaDB (via XAMPP, WAMP, Laragon, or standalone MySQL)
+- **Database**: MySQL 5.7+ / 8.0+ or MariaDB
 
 ### Step 1: Clone the Repository
 ```bash
@@ -168,7 +177,7 @@ cd 10ccy_trips
 ```bash
 mysql -u root -p < seed_indian_data.sql
 ```
-*(This automatically creates the `10ccy_trips` database and populates it with realistic Indian buses, routes such as Bengaluru–Chennai and Mumbai–Pune, active schedules, and demo accounts).*
+*(This automatically creates the `10ccy_trips` database and populates it with realistic Indian buses, routes like Bangalore–Udupi and Bangalore–Mangalore, active schedules, and demo accounts).*
 
 ### Step 3: Configure Database Connection
 Verify the connection credentials in [`includes/db.php`](includes/db.php):
@@ -205,9 +214,8 @@ The seeded database comes pre-configured with the following test credentials:
 | Role | Username / Identifier | Password | Access Level |
 | :--- | :--- | :--- | :--- |
 | **System Administrator** | `admin` | `admin123` | Full Fleet, Route, Schedule & Booking Admin Control |
-| **Demo Passenger** | `ritesh0w0` (or `ritesh@10ccytrips.com`) | `admin123` | Search, Book Seats, View E-Tickets, Cancel Trips |
-| **Passenger 2** | `rahul_s` (or `rahul.sharma@example.com`) | `admin123` | Standard Passenger Booking & History Access |
-| **Passenger 3** | `priya_p` (or `priya.patel@example.com`) | `admin123` | Standard Passenger Booking & History Access |
+| **Demo Passenger 1** | `roshan` (or `roshan@bmsit.in`) | `admin123` | Search, Book Seats, View E-Tickets, Cancel Trips |
+| **Demo Passenger 2** | `ritesh0w0` (or `ritesh@10ccytrips.com`) | `admin123` | Search, Book Seats, View E-Tickets, Cancel Trips |
 
 ---
 
@@ -217,19 +225,26 @@ The seeded database comes pre-configured with the following test credentials:
 10ccy_trips/
 │
 ├── assets/                     # Frontend static assets
-│   ├── logo.png                # Brand logo
+│   ├── logo.png                # Original 10ccy Trips brand bus logo
+│   ├── screenshots/            # Original project report captures
 │   └── style.css               # Global application stylesheet
 │
 ├── docs/                       # Project documentation
 │   └── screenshots/            # Visual documentation & preview captures
 │       ├── 01_landing_page.png
-│       ├── 02_user_login.png
-│       ├── 03_user_dashboard.png
-│       ├── 04_bus_search_booking.png
-│       ├── 05_seat_selection.png
-│       ├── 06_eticket_confirmation.png
-│       ├── 07_booking_history.png
-│       └── 08_admin_dashboard.png
+│       ├── 02_login_choice.png
+│       ├── 03_user_login.png
+│       ├── 04_user_dashboard.png
+│       ├── 05_bus_search.png
+│       ├── 06_seat_selection.png
+│       ├── 07_booking_confirmed.png
+│       ├── 08_eticket.png
+│       ├── 09_booking_history.png
+│       ├── 10_admin_dashboard.png
+│       ├── 11_manage_schedules.png
+│       ├── 12_manage_routes.png
+│       ├── 13_manage_buses.png
+│       └── 14_manage_bookings.png
 │
 ├── includes/                   # Reusable server-side modules
 │   ├── db.php                  # MySQL database connection handler
@@ -256,7 +271,7 @@ The seeded database comes pre-configured with the following test credentials:
 ├── manage_routes.php           # Admin intercity route CRUD
 ├── manage_schedules.php        # Admin timetable & fare manager
 ├── register.php                # Passenger self-registration
-├── seed_indian_data.sql        # Database schema + Indian fleet seed dataset
+├── seed_indian_data.sql        # Database schema + authentic fleet seed dataset
 ├── ticket.php                  # Printable electronic travel voucher
 ├── .gitignore                  # Git tracking exclusion list (protects .env)
 ├── LICENSE                     # MIT License
